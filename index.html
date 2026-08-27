@@ -732,12 +732,12 @@ async function checkJob(job){
         ============================== */
 
         if(
-
-            data.status === "processing" ||
-
-            data.status === "running" ||
-
-            data.status === "pending"
+    data.status === "queued" ||
+    data.status === "processing" ||
+    data.status === "working" ||
+    data.status === "running" ||
+    data.status === "pending"
+){
 
         ){
 
