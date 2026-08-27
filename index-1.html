@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<title>ClipCash AI — Creator Dashboard</title>
+<style>
+:root{--bg:#080b12;--panel:#10151f;--panel2:#0c1119;--line:#252e3b;--text:#f5f7fb;--muted:#8f9bad;--accent:#67e8b2;--accent2:#3ddc97;--danger:#ff7b7b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% -10%,#173129 0,#080b12 32%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+button,input,textarea,select{font:inherit}.app{display:flex;min-height:100vh}.sidebar{width:250px;border-right:1px solid var(--line);background:rgba(8,11,18,.92);padding:22px 15px;position:fixed;inset:0 auto 0 0}.brand{font-size:24px;font-weight:900;padding:8px 10px 22px}.brand span{color:var(--accent)}.tag{font-size:10px;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase}.nav button{width:100%;text-align:left;background:none;border:0;color:#aeb8c8;padding:12px;border-radius:11px;cursor:pointer;margin:3px 0}.nav button:hover,.nav button.active{background:#151c26;color:#fff}.nav button.active{box-shadow:inset 3px 0 0 var(--accent)}.main{margin-left:250px;width:calc(100% - 250px);max-width:1200px;padding:28px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.eyebrow{color:var(--accent);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1.5px}.top h1{margin:5px 0 0;font-size:34px}.status{border:1px solid var(--line);padding:8px 11px;border-radius:999px;color:#b9c2d0;font-size:12px;background:#10151d}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 12;background:linear-gradient(180deg,#111721,#0e131b);border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:0 10px 35px #0002}.half{grid-column:span 6}.third{grid-column:span 4}.card h2,.card h3{margin:0 0 7px}.desc{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 15px}.field{margin:11px 0}label{display:block;color:#b5bfce;font-size:12px;margin-bottom:6px}input,textarea,select{width:100%;background:#090d13;color:#fff;border:1px solid #2b3543;border-radius:10px;padding:11px;outline:none}input:focus,textarea:focus,select:focus{border-color:#4dbe92}textarea{min-height:110px;resize:vertical}.row{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid #303b49;background:#171d27;color:#fff;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:750}.btn:hover{filter:brightness(1.12)}.primary{background:var(--accent);color:#06110b;border-color:var(--accent)}.danger{color:#ffaaaa;border-color:#5a3030}.output{background:#090d13;border:1px solid #283240;border-radius:11px;padding:13px;white-space:pre-wrap;min-height:80px;color:#dce2eb;line-height:1.55}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#0b1017;border:1px solid #252e3a;border-radius:12px;padding:13px}.stat b{font-size:22px;display:block}.stat span{font-size:11px;color:var(--muted)}.tool{display:none}.tool.active{display:block}.upload{border:2px dashed #303b49;border-radius:14px;padding:22px;text-align:center;background:#0b1017}.upload input{border:0;background:none}.clipbox{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.clip{border:1px solid #2b3542;background:#0a0f16;border-radius:13px;padding:14px}.score{color:var(--accent);font-weight:900}.small{font-size:11px;color:var(--muted)}.toast{position:fixed;right:18px;bottom:18px;background:#18221f;border:1px solid #315b4b;padding:12px 15px;border-radius:10px;display:none}.footer{color:#687487;font-size:11px;text-align:center;margin:30px 0}.mobilebar{display:none}
+@media(max-width:850px){.sidebar{display:none}.main{margin:0;width:100%;padding:18px 14px 80px}.half,.third{grid-column:span 12}.stats{grid-template-columns:repeat(2,1fr)}.clipbox{grid-template-columns:1fr}.mobilebar{display:flex;position:fixed;z-index:10;bottom:0;left:0;right:0;background:#0b1017;border-top:1px solid var(--line);justify-content:space-around;padding:9px}.mobilebar button{background:none;border:0;color:#aeb8c8;font-size:11px}.top h1{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="brand">ClipCash <span>AI</span><div class="tag">Creator command centre</div></div>
+<nav class="nav">
+<button class="active" data-tool="home">⌂ Dashboard</button>
+<button data-tool="shorts">🎬 Shorts Generator</button>
+<button data-tool="hooks">🪝 Hooks & Titles</button>
+<button data-tool="clips">✂️ Clipper Planner</button>
+<button data-tool="money">💰 Monetization</button>
+<button data-tool="planner">📅 30-Day Planner</button>
+<button data-tool="capcut">⚡ CapCut Studio</button>
+</nav>
+</aside>
+<main class="main">
+<div class="top"><div><div class="eyebrow">Your AI creator system</div><h1 id="pageTitle">Dashboard</h1></div><div class="status">● GitHub Pages Ready</div></div>
+
+<section id="home" class="tool active">
+<div class="grid">
+<div class="card"><h2>Welcome to ClipCash AI</h2><p class="desc">Generate short-form content, plan clips, create CapCut prompts and build monetization ideas — all from one dashboard.</p><div class="row"><button class="btn primary" onclick="openTool('shorts')">Create a Short</button><button class="btn" onclick="openTool('clips')">Plan Clips</button></div></div>
+<div class="card"><h3>Creator Scoreboard</h3><div class="stats"><div class="stat"><b id="videos">0</b><span>Ideas created</span></div><div class="stat"><b id="clipsMade">0</b><span>Clip plans</span></div><div class="stat"><b id="plans">0</b><span>Plans made</span></div><div class="stat"><b>R0</b><span>Tool cost</span></div></div></div>
+<div class="card third"><h3>🎯 1–2 sec hook</h3><p class="desc">Start with the most interesting statement, result or question.</p></div>
+<div class="card third"><h3>📱 9:16 first</h3><p class="desc">Design every idea for vertical mobile viewing.</p></div>
+<div class="card third"><h3>🔁 Test & repeat</h3><p class="desc">Make several hooks around the same winning topic.</p></div>
+</div>
+</section>
+
+<section id="shorts" class="tool">
+<div class="card"><h2>🎬 Shorts Generator</h2><p class="desc">Create a complete short from a topic. The local version uses templates so there is no API key in your public GitHub site.</p>
+<div class="grid"><div class="half"><div class="field"><label>Topic</label><input id="sTopic" placeholder="BMW facts, AI tools, motivation..."></div><div class="field"><label>Style</label><select id="sStyle"><option>Viral / high retention</option><option>Funny</option><option>Storytelling</option><option>Facts / curiosity</option><option>Motivational</option></select></div></div>
+<div class="half"><div class="field"><label>Audience</label><input id="sAudience" placeholder="young car fans"></div><div class="field"><label>Length</label><select id="sLength"><option>20–30 seconds</option><option>30–45 seconds</option><option>45–60 seconds</option></select></div></div></div>
+<button class="btn primary" onclick="generateShort()">Generate</button><div id="shortOut" class="output">Your Short appears here.</div><div class="row"><button class="btn" onclick="copy('shortOut')">Copy</button><button class="btn" onclick="openTool('capcut')">Make CapCut Prompt →</button></div></div>
+</section>
+
+<section id="hooks" class="tool">
+<div class="card"><h2>🪝 Hooks, Titles & Captions</h2><p class="desc">Generate multiple angles so you can test what gets attention.</p><div class="field"><label>Topic</label><input id="hTopic" placeholder="Your topic"></div><button class="btn primary" onclick="generateHooks()">Generate 10 Hooks</button><div id="hookOut" class="output">Results appear here.</div></div>
+</section>
+
+<section id="clips" class="tool">
+<div class="card"><h2>✂️ Clipper Planner</h2><p class="desc">Paste a transcript from a podcast, interview or long video and get strong short-form moments. This GitHub version does not upload your video anywhere.</p>
+<div class="field"><label>Transcript / content</label><textarea id="cText" placeholder="Paste transcript here..."></textarea></div><div class="grid"><div class="half"><label>Niche</label><input id="cNiche" placeholder="podcast, cars, gaming..."></div><div class="half"><label>Number of clips</label><select id="cCount"><option>3</option><option selected>5</option><option>10</option></select></div></div><button class="btn primary" onclick="generateClips()">Find Clip Opportunities</button><div id="clipOut" class="clipbox"></div></div>
+<div class="card"><h3>Raw video automation</h3><p class="desc">The GitHub Pages frontend cannot run FFmpeg or a private AI API by itself. When you add your backend later, this button can connect the upload → transcription → clip rendering pipeline.</p><div class="upload"><input type="file" accept="video/*" id="rawVideo"><p id="rawName" class="small">Choose a raw video (frontend demo only)</p></div></div>
+</section>
+
+<section id="money" class="tool">
+<div class="card"><h2>💰 Monetization Planner</h2><p class="desc">Build realistic ways to turn attention into income. No earnings are guaranteed.</p><div class="grid"><div class="half"><label>Niche</label><input id="mNiche" placeholder="cars, AI, fitness..."></div><div class="half"><label>Starting budget</label><input id="mBudget" placeholder="R0"></div></div><button class="btn primary" onclick="generateMoney()">Build Plan</button><div id="moneyOut" class="output"></div></div>
+</section>
+
+<section id="planner" class="tool">
+<div class="card"><h2>📅 30-Day Content Planner</h2><p class="desc">Create a repeatable posting system.</p><div class="grid"><div class="half"><label>Niche</label><input id="pNiche" placeholder="your niche"></div><div class="half"><label>Videos per day</label><select id="pCount"><option>1</option><option selected>2</option><option>3</option></select></div></div><button class="btn primary" onclick="generatePlan()">Generate Plan</button><div id="planOut" class="output"></div></div>
+</section>
+
+<section id="capcut" class="tool">
+<div class="card"><h2>⚡ CapCut Studio</h2><p class="desc">Turn your idea into a detailed prompt you can paste into CapCut or use as your editing blueprint.</p><div class="field"><label>Video idea</label><textarea id="ccIdea" placeholder="Describe your video or paste your script..."></textarea></div><div class="grid"><div class="half"><label>Editing style</label><select id="ccStyle"><option>Fast viral</option><option>Cinematic</option><option>Funny</option><option>Clean educational</option></select></div><div class="half"><label>Format</label><select id="ccFormat"><option>9:16 YouTube Short</option><option>9:16 TikTok</option><option>9:16 Instagram Reel</option></select></div></div><button class="btn primary" onclick="generateCapcut()">Create Prompt</button><div id="ccOut" class="output"></div><button class="btn" onclick="copy('ccOut')">Copy Prompt</button></div>
+</section>
+<div class="footer">ClipCash AI • GitHub Pages frontend • No secret API keys stored in this file</div>
+</main>
+</div>
+<div class="mobilebar"><button onclick="openTool('home')">⌂<br>Home</button><button onclick="openTool('shorts')">🎬<br>Shorts</button><button onclick="openTool('clips')">✂️<br>Clips</button><button onclick="openTool('money')">💰<br>Money</button><button onclick="openTool('planner')">📅<br>Plan</button></div>
+<div class="toast" id="toast">Copied</div>
+<script>
+const titles={home:'Dashboard',shorts:'Shorts Generator',hooks:'Hooks & Titles',clips:'Clipper Planner',money:'Monetization Planner',planner:'30-Day Planner',capcut:'CapCut Studio'};
+function openTool(id){document.querySelectorAll('.tool').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.tool===id));document.getElementById('pageTitle').textContent=titles[id];scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>openTool(b.dataset.tool));
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function copy(id){navigator.clipboard?.writeText(document.getElementById(id).innerText);let t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',1200)}
+function inc(id){let e=document.getElementById(id);e.textContent=+e.textContent+1}
+function generateShort(){
+ const t=document.getElementById('sTopic').value||'your niche',a=document.getElementById('sAudience').value||'people scrolling on their phones',st=document.getElementById('sStyle').value,l=document.getElementById('sLength').value;
+ const hook=pick([`STOP scrolling — you need to know this about ${t}.`,`Nobody tells you this about ${t}.`,`If you're into ${t}, watch this.`,`This changes how you look at ${t}.`,`Here's the part about ${t} that most people miss.`]);
+ const script=`HOOK (0–2s): ${hook}\n\nBODY (2–25s):\nStart with the surprising point. Explain it in short sentences. Give one specific example. Remove every sentence that does not move the story forward.\n\nPAYOFF:\nEnd with the most useful or surprising takeaway.\n\nCTA:\nFollow for more ${t} content.\n\nSTYLE: ${st}\nLENGTH: ${l}\nAUDIENCE: ${a}`;
+ document.getElementById('shortOut').textContent=`TITLE: ${t} — ${st}\n\n${script}`;inc('videos')
+}
+function generateHooks(){
+ const t=document.getElementById('hTopic').value||'your topic';
+ const arr=[`STOP scrolling — ${t} is not what you think.`,`Nobody tells you this about ${t}.`,`I wish I knew this before getting into ${t}.`,`The biggest mistake people make with ${t}.`,`Here's why ${t} is changing.`,`3 things about ${t} you probably didn't know.`,`Wait until you see what happens with ${t}.`,`This is the truth about ${t}.`,`If you care about ${t}, watch this first.`,`The part nobody talks about when it comes to ${t}.`];
+ document.getElementById('hookOut').textContent=arr.map((x,i)=>`${i+1}. ${x}`).join('\\n');inc('videos')
+}
+function generateClips(){
+ const text=document.getElementById('cText').value.trim(),n=+document.getElementById('cCount').value, niche=document.getElementById('cNiche').value||'your niche';
+ if(!text){document.getElementById('clipOut').innerHTML='<div class="clip">Paste a transcript first.</div>';return}
+ const lines=text.split(/[.!?\\n]+/).map(x=>x.trim()).filter(x=>x.length>25);
+ let html='';for(let i=0;i<n;i++){let moment=lines[i%Math.max(1,lines.length)]||text.slice(0,180);let score=Math.min(10,7+(i%4)/2);html+=`<div class="clip"><div class="score">Viral potential ${score}/10</div><h3>Clip ${i+1}</h3><p><b>Hook:</b> ${pick(['Wait until you hear this…','This is the part everyone misses.','Here’s the real reason.','Nobody talks about this.','This changes everything.'])}</p><p><b>Moment:</b> ${escapeHtml(moment.slice(0,240))}</p><p><b>Caption:</b> ${escapeHtml(moment.slice(0,90))}…</p><p class="small">Edit: remove pauses, start on the strongest sentence, use large captions, punch in on key words and end on a curiosity loop.</p></div>`}
+ document.getElementById('clipOut').innerHTML=html;inc('clipsMade')
+}
+function generateMoney(){
+ const n=document.getElementById('mNiche').value||'your niche',b=document.getElementById('mBudget').value||'R0';
+ document.getElementById('moneyOut').textContent=`MONETIZATION PLAN — ${n}\\n\\nBudget: ${b}\\n\\n1. AUDIENCE: Post consistently and identify the topics that earn the strongest retention and follows.\\n2. AFFILIATE: Recommend relevant products or tools you genuinely understand and disclose affiliate relationships.\\n3. DIGITAL PRODUCT: Package useful knowledge into a simple guide, template or checklist.\\n4. SERVICES: Offer clipping/editing/content services once you can demonstrate results.\\n5. PLATFORM REVENUE: Work toward the current YouTube/TikTok/Instagram eligibility requirements.\\n\\nRULE: Don't buy views, followers or engagement. Track views, retention, follows and clicks instead.`;
+}
+function generatePlan(){
+ const n=document.getElementById('pNiche').value||'your niche',c=+document.getElementById('pCount').value,types=['curiosity fact','mistake to avoid','how-to','story','top 3','myth vs reality','reaction/opinion'];
+ let out=`30-DAY PLAN — ${n}\\n\\n`;for(let d=1;d<=30;d++){let arr=[];for(let j=0;j<c;j++)arr.push(`${types[(d+j)%types.length]} about ${n}`);out+=`Day ${d}: ${arr.join(' + ')}\\n`}out+='\\nWEEKLY REVIEW: Repeat the topics and hooks with the strongest retention. Change one variable at a time.';document.getElementById('planOut').textContent=out;inc('plans')
+}
+function generateCapcut(){
+ const idea=document.getElementById('ccIdea').value||'your video idea',style=document.getElementById('ccStyle').value,format=document.getElementById('ccFormat').value;
+ document.getElementById('ccOut').textContent=`CAPCUT PROMPT\\n\\nCreate a ${format} using this idea/script:\\n${idea}\\n\\nSTYLE: ${style}\\n\\nEDITING:\\n• Hook must appear in the first 1–2 seconds.\\n• Use fast pacing and remove dead space.\\n• Add large, readable on-screen captions.\\n• Highlight important words with visual emphasis.\\n• Change framing/visuals every 1–3 seconds where appropriate.\\n• Use subtle zooms and clean transitions.\\n• Keep music below dialogue and use sound effects sparingly.\\n• End with a strong payoff and a natural follow/comment CTA.\\n• Export vertical 1080×1920.`;
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+document.getElementById('rawVideo').onchange=e=>document.getElementById('rawName').textContent=e.target.files[0]?.name||'Choose a raw video';
+</script>
+</body></html>
